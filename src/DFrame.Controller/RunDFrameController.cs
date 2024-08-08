@@ -8,6 +8,7 @@ using MessagePack;
 using MessagePipe;
 using Microsoft.AspNetCore.Mvc.ApplicationParts;
 using Microsoft.Extensions.DependencyInjection.Extensions;
+using System.Reflection;
 
 namespace DFrame;
 
@@ -77,6 +78,9 @@ public static class DFrameControllerWebApplicationBuilderExtensions
         app.MapFallbackToPage("/_Host");
 
         app.MapMagicOnionService();
+
+        app.UseEmbeddedResourceMiddleware("Assets", Assembly.GetExecutingAssembly());
+
 
         DisplayConfiguration(app);
 

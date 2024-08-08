@@ -7,11 +7,16 @@
 		<RootNamespace>DFrame</RootNamespace>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<DefineConstants>DFRAME_CONTROLLER</DefineConstants>
+		<GenerateEmbeddedFilesManifest>true</GenerateEmbeddedFilesManifest>
 
 		<!-- NuGet Packaging -->
 		<SignAssembly>true</SignAssembly>
 		<IsPackable>true</IsPackable>
 	</PropertyGroup>
+
+	<ItemGroup>
+	  <EmbeddedResource Include="Assets\**\*" />
+	</ItemGroup>
 
 	<ItemGroup>
 		<None Include="..\..\Icon.png" Pack="true" PackagePath="/" />
@@ -20,6 +25,7 @@
 	<ItemGroup>
 		<PackageReference Include="MagicOnion" />
 		<PackageReference Include="MessagePipe" />
+		<PackageReference Include="Microsoft.Extensions.FileProviders.Embedded" />
 		<PackageReference Include="ObservableCollections" />
 		<PackageReference Include="UnitGenerator">
 			<PrivateAssets>all</PrivateAssets>
