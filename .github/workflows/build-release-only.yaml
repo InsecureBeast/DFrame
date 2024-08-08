@@ -51,7 +51,7 @@ jobs:
       #nuget-push: true
       release-upload: true
       #release-asset-path: ./DFrame.${{ inputs.tag }}.unitypackage/DFrame.${{ inputs.tag }}.unitypackage
-    secrets: inherit
+    #secrets: inherit
 
   cleanup:
     if: ${{ needs.update-packagejson.outputs.is-branch-created == 'true' }}
