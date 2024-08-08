@@ -92,13 +92,13 @@ jobs:
 
   # release
   create-release:
-    needs: [update-packagejson, build-dotnet] #, build-unity]
+    needs: [update-packagejson, build-dotnet, build-unity]
     uses: Cysharp/Actions/.github/workflows/create-release.yaml@main
     with:
       commit-id: ${{ needs.update-packagejson.outputs.sha }}
       dry-run: ${{ inputs.dry-run }}
       tag: ${{ inputs.tag }}
-      #nuget-push: true
+      nuget-push: true
       release-upload: true
       release-asset-path: ./DFrame.${{ inputs.tag }}.unitypackage/DFrame.${{ inputs.tag }}.unitypackage
     secrets: inherit
